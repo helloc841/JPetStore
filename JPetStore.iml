@@ -19,6 +19,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="library" name="mysql-connector-j-8.1.0" level="project" />
+    <orderEntry type="library" name="taglibs-standard-impl-1.2.5(1)" level="project" />
   </component>
 </module>

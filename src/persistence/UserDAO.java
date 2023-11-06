@@ -9,9 +9,12 @@ public interface UserDAO {
     //注销用户
     public boolean userLogout(String username);
     //获取用户密码
-    public boolean getUserPassword(String username);
-    //设置用户密码
-    public boolean setUserPassword(String username , String password);
     //判断用户名是否重复
     public boolean isUsernameRepeat(String username);
+    //获取用户的账号信息
+    public User getUserAccount(String username);
+    //修改用户账号信息
+    public boolean setUserAccount(User user);
+    //修改用户密码
+    public boolean setUserPassword(String username , String password);
 }

@@ -4,6 +4,7 @@ public class User {
     //用户基本信息
     String username;
     String password;
+    String repeatPassword;
     String firstname;
     String lastname;
     String email;
@@ -16,6 +17,35 @@ public class User {
     String country;
     String language;
     String lovecategory;
+
+    public User(String username, String password, String repeatPassword , String firstname, String lastname,
+                String email, String phone, String address1, String address2, String city,
+                String state, String zipcode, String country, String language, String lovecategory) {
+        this.username = username;
+        this.password = password;
+        this.repeatPassword = repeatPassword;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.phone = phone;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.country = country;
+        this.language = language;
+        this.lovecategory = lovecategory;
+    }
+    public User(){}
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
+    }
 
     public String getUsername() {
         return username;
@@ -127,5 +157,26 @@ public class User {
 
     public void setLovecategory(String lovecategory) {
         this.lovecategory = lovecategory;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", repeatPassword='" + repeatPassword + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address1='" + address1 + '\'' +
+                ", address2='" + address2 + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                ", country='" + country + '\'' +
+                ", language='" + language + '\'' +
+                ", lovecategory='" + lovecategory + '\'' +
+                '}';
     }
 }
