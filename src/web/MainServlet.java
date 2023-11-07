@@ -6,11 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SignInServlet extends HttpServlet {
-    private static final String URL_SIGNIN = "/WEB-INF/JSP/signin.jsp";
-
+public class MainServlet extends HttpServlet {
+    private static final String URL_MAINPAGE= "/mainpage.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(URL_SIGNIN).forward(req,resp);
+        req.getRequestDispatcher(URL_MAINPAGE).forward(req,resp);
     }
 }

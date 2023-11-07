@@ -1,4 +1,4 @@
-package web;
+package web.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +10,7 @@ import pojo.User;
 import service.logAndregService;
 
 public class MyAccountServlet extends HttpServlet {
-    private static final String URL_MYACCOUNT = "/WEB-INF/JSP/myaccount.jsp";
+    private static final String URL_MYACCOUNT = "/WEB-INF/JSP/User/myaccount.jsp";
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logAndregService logandregservice = new logAndregService();

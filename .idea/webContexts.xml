@@ -5,9 +5,13 @@
       <map>
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/JSP/cart.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/JSP" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/JSP/loginmainpage.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/JSP" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/cart.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/myaccount.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp" />
         <entry key="file://$PROJECT_DIR$/web/item.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/logindetail.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/loginproducts.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/products.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/search.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/signin.jsp" value="file://$PROJECT_DIR$/web" />
       </map>
     </option>

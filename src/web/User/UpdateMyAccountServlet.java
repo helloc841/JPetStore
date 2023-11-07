@@ -1,4 +1,4 @@
-package web;
+package web.User;
 
 import pojo.User;
 

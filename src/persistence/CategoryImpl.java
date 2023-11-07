@@ -55,7 +55,6 @@ public class CategoryImpl implements CategoryDAO{
                 item.setPrice(resultSet.getString(6));
                 item.setItemkind(resultSet.getString(7));
                 item.setImage(resultSet.getString(8));
-                System.out.println(item.toString());
                 items.add(item);
             }
             DBUtil.closeConnection(connection);
@@ -77,14 +76,13 @@ public class CategoryImpl implements CategoryDAO{
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 Item item = new Item();
-                item.setProductid(itemId);
+                item.setProductid(resultSet.getString(2));
                 item.setItemid(resultSet.getString(3));
                 item.setDescription(resultSet.getString(4));
                 item.setItemname(resultSet.getString(5));
                 item.setPrice(resultSet.getString(6));
                 item.setItemkind(resultSet.getString(7));
                 item.setImage(resultSet.getString(8));
-                System.out.println(item.toString());
                 items.add(item);
             }
             DBUtil.closeConnection(connection);

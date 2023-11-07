@@ -1,11 +1,21 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 苏建宁
+  Date: 2023/11/3
+  Time: 22:35
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
+<link rel="StyleSheet" href="css/jpetstore.css" type="text/css" media="screen"/>
+
 <head>
     <title>JPetStore Demo</title>
-    <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen"/>
 </head>
 
 <body>
@@ -157,10 +167,11 @@
     </p>
 
 
-    <p><sub>Copyright www.mybatis.org</sub></p>
+    <p><sub>Copyright Apache Software Foundation</sub></p>
 
 </div>
 
 </body>
 
 </html>
+

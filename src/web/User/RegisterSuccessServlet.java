@@ -1,4 +1,4 @@
-package web;
+package web.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +11,7 @@ import service.logAndregService;
 
 public class RegisterSuccessServlet extends HttpServlet {
     private static final String URL_MAINPAGE = "loginmainpage";
-    private static final String URL_REGISTER = "/WEB-INF/JSP/register.jsp";
+    private static final String URL_REGISTER = "/WEB-INF/JSP/User/register.jsp";
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logAndregService logandregservice = new logAndregService();

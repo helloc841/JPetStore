@@ -14,4 +14,6 @@ public interface CartDAO {
     public List<CartItem> getLstItem(String username);
     //查询是否加入了多次购物车
     public boolean isExistItem(String username , String itemId);
+    public void deleteItem(String username , String itemid);
+    public void updateItem(String username  , String itemid , int quantity);
 }

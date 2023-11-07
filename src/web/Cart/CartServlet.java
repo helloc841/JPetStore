@@ -1,4 +1,4 @@
-package web;
+package web.Cart;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,35 +9,37 @@ import java.io.IOException;
 import service.*;
 import pojo.*;
 
-public class CardServlet extends HttpServlet {
-    private static final String URL_LOGIN = "/WEB-INF/JSP/signin.jsp";
-    private static final String URL_CART = "/WEB-INF/JSP/cart.jsp";
+public class CartServlet extends HttpServlet {
+    private static final String URL_LOGIN = "/WEB-INF/JSP/User/signin.jsp";
+    private static final String URL_CART = "/WEB-INF/JSP/cart/cart.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CategoryService categoryService = new CategoryService();
         CartService cartService = new CartService();
-        String itemId = req.getParameter("itemid");
-        String quantity = req.getParameter("quantity");
         String username = req.getParameter("username");
         if (username == null)
             req.getRequestDispatcher(URL_LOGIN).forward(req,resp);
         else {
+            String itemId = req.getParameter("itemid");
+            String Categgory = req.getParameter("Category");
+            String productid = req.getParameter("productid");
             Cart cart = new Cart();
+            CartItem cartItem = new CartItem();
             if (itemId != null){
-                CartItem cartItem = new CartItem();
                 Item item = categoryService.getItemsById(itemId).get(0);
+                cartItem.setPrice(item.getPrice());
                 cartItem.setItemId(itemId);
+                cartItem.setProductid(productid);
                 cartItem.setInStock("true");
-                if (quantity != null){
-                    cartItem.setQuantity(Integer.parseInt(quantity));
-                }
-                else
-                    cartItem.setQuantity(1);
+                cartItem.setCategory(Categgory);
+                cartItem.setQuantity(1);
+                cartItem.setTotalByPrice();
                 cartItem.setItemName(item.getItemname());
-                cartItem.setTotal(item.getPrice());
-                cartService.addCartItem(username , cartItem);
-                cart.setItemList(cartService.getListCardItem(username));
+                cartItem.setPrice(item.getPrice());
+                cartService.addCartItem(username,cartItem);
             }
+            cart.setItemList(cartService.getListCardItem(username));
+            cart.setTotal();
             HttpSession session = req.getSession();
             session.setAttribute("cart",cart);
             session.setAttribute("username",username);

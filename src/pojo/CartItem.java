@@ -10,6 +10,33 @@ public class CartItem implements Serializable{
     private int quantity;
     private String inStock;
     private String total;
+    private String productid;
+    private String price;
+    private String category;
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getProductid() {
+        return productid;
+    }
+
+    public void setProductid(String productid) {
+        this.productid = productid;
+    }
 
     @Override
     public String toString() {
@@ -19,6 +46,9 @@ public class CartItem implements Serializable{
                 ", quantity=" + quantity +
                 ", inStock='" + inStock + '\'' +
                 ", total='" + total + '\'' +
+                ", productid='" + productid + '\'' +
+                ", price='" + price + '\'' +
+                ", Category='" + category + '\'' +
                 '}';
     }
 
@@ -51,14 +81,16 @@ public class CartItem implements Serializable{
         return total;
     }
 
-    public void setTotal(String price) {
-        int listTotal = 0;
+    public void setTotalByPrice() {
+        float listTotal;
         String priceStr = price.substring(1,price.length());
-        int priceInt = Integer.parseInt(priceStr);
+        float priceInt = Float.parseFloat(priceStr);
         listTotal = priceInt * quantity;
         total = "$"+listTotal;
     }
-
+    public void setTotal(String total){
+        this.total = total;
+    }
     public String getItemId() {
         return itemId;
     }

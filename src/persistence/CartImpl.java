@@ -12,20 +12,24 @@ import java.util.List;
 public class CartImpl implements CartDAO{
     private static final String CREATEBYUSERNAME = "CREATE TABLE %s (\n" +
             "    id INT PRIMARY KEY AUTO_INCREMENT,\n" +
-            "    itemid CHAR(10),\n" +
-            "    itemname INT,\n" +
-            "    quantity CHAR(10),\n" +
-            "    instock CHAR(10),\n" +
-            "    total CHAR(10)\n" +
+            "    itemid CHAR(40),\n" +
+            "    productid CHAR(40),\n" +
+            "    itemname CHAR(40),\n" +
+            "    quantity INT,\n" +
+            "    instock CHAR(40),\n" +
+            "    price CHAR(40),\n" +
+            "    total CHAR(40),\n" +
+            "    Category CHAR(40)\n" +
             ");";
     private static final String ISEXISTTABLE = "SELECT table_name\n" +
             "FROM information_schema.tables\n" +
             "WHERE table_schema = 'jpetstore'\n" +
             "AND table_name = ?;";
-    private static final String INSERTCART = "INSERT INTO %s (itemid,itemname,quantity,instock,total) VALUES(?,?,?,?,?)";
+    private static final String INSERTCART = "INSERT INTO %s (itemid,productid,itemname,quantity,instock,price,total,Category) VALUES(?,?,?,?,?,?,?,?)";
     private static final String SELECTITEM = "SELECT * FROM %s";
     private static final String SELECTITEMID = "SELECT * FROM %s WHERE itemid=?";
-    private static final String UPDATEQUANTITY = "UPDATE %s SET quantity = quantity + 1 WHERE itemid=?";
+    private static final String DELETEITEMID = "DELETE FROM %s WHERE itemid=?";
+    private static final String UPDATEQUANTITY = "UPDATE %s SET quantity=? WHERE itemid=?";
     @Override
     public void createCart(String username) {
         Connection connection = null;
@@ -70,27 +74,23 @@ public class CartImpl implements CartDAO{
 
     @Override
     public void addCartItemIntoCart(CartItem cartItem , String username) {
-        Connection connection = null;
+        Connection connection = DBUtil.getConnection();
         PreparedStatement preparedStatement = null;
         try {
             if (!isHasCart(username)){
                 createCart(username);
             }
-            connection = DBUtil.getConnection();
-            if (isExistItem(username , cartItem.getItemId())){
-                String sql = String.format(UPDATEQUANTITY,username);
-                preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setString(1, cartItem.getItemId());
-                preparedStatement.execute();
-            }
-            else {
+            if (!isExistItem(username , cartItem.getItemId())){
                 String sql = String.format(INSERTCART,username);
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1,cartItem.getItemId());
-                preparedStatement.setString(2,cartItem.getItemName());
-                preparedStatement.setInt(3,cartItem.getQuantity());
-                preparedStatement.setString(4,cartItem.getInStock());
-                preparedStatement.setString(5,cartItem.getTotal());
+                preparedStatement.setString(2, cartItem.getProductid());
+                preparedStatement.setString(3,cartItem.getItemName());
+                preparedStatement.setInt(4,cartItem.getQuantity());
+                preparedStatement.setString(5,cartItem.getInStock());
+                preparedStatement.setString(6,cartItem.getPrice());
+                preparedStatement.setString(7,cartItem.getTotal());
+                preparedStatement.setString(8,cartItem.getCategory());
                 preparedStatement.execute();
             }
         } catch (SQLException e) {
@@ -115,10 +115,14 @@ public class CartImpl implements CartDAO{
             while (resultSet.next()){
                 CartItem cartitem = new CartItem();
                 cartitem.setItemId(resultSet.getString(2));
-                cartitem.setItemName(resultSet.getString(3));
-                cartitem.setQuantity(resultSet.getInt(4));
-                cartitem.setInStock(resultSet.getString(5));
-                cartitem.setTotal(resultSet.getString(6));
+                cartitem.setProductid(resultSet.getString(3));
+                cartitem.setItemName(resultSet.getString(4));
+                cartitem.setQuantity(resultSet.getInt(5));
+                cartitem.setInStock(resultSet.getString(6));
+                cartitem.setPrice(resultSet.getString(7));
+                cartitem.setTotal(resultSet.getString(8));
+                cartitem.setCategory(resultSet.getString(9));
+                cartitem.setTotalByPrice();
                 cartItems.add(cartitem);
             }
             return cartItems;
@@ -154,5 +158,36 @@ public class CartImpl implements CartDAO{
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeResultSet(resultSet);
         }
+    }
+
+    @Override
+    public void deleteItem(String username, String itemid) {
+        Connection connection = DBUtil.getConnection();
+        String sql = String.format(DELETEITEMID,username);
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,itemid);
+            preparedStatement.execute();
+            DBUtil.closeConnection(connection);
+            DBUtil.closePreparedStatement(preparedStatement);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateItem(String username, String itemid, int quantity) {
+        Connection connection = DBUtil.getConnection();
+        PreparedStatement preparedStatement= null;
+        String sql = String.format(UPDATEQUANTITY,username);
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,quantity);
+            preparedStatement.setString(2,itemid);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
