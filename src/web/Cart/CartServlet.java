@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import service.*;
 import pojo.*;
+import web.Filter.CartFilter;
 
 public class CartServlet extends HttpServlet {
     private static final String URL_LOGIN = "/WEB-INF/JSP/User/signin.jsp";
@@ -21,6 +22,7 @@ public class CartServlet extends HttpServlet {
             req.getRequestDispatcher(URL_LOGIN).forward(req,resp);
         else {
             String itemId = req.getParameter("itemid");
+            System.out.println("itemId:"+itemId);
             String Categgory = req.getParameter("Category");
             String productid = req.getParameter("productid");
             Cart cart = new Cart();
@@ -43,6 +45,9 @@ public class CartServlet extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("cart",cart);
             session.setAttribute("username",username);
+            session.setAttribute("itemid",itemId);
+            CartFilter cartFilter = new CartFilter();
+            cartFilter.doFilter(req,resp,null);
             req.getRequestDispatcher(URL_CART).forward(req,resp);
         }
     }

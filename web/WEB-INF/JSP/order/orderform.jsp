@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 苏建宁
-  Date: 2023/11/5
-  Time: 16:29
+  Date: 2023/11/8
+  Time: 10:35
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,7 +11,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<%
+    <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
     String username = (String) session.getAttribute("username");
@@ -42,7 +42,7 @@
 
     <div id="Menu">
         <div id="MenuContent">
-            <a href="/jpetstore/shop/viewCart.shtml"><img align="middle" name="img_cart" src="<%=basePath%>/images/cart.gif"/></a>
+            <a href="<%=basePath%>/web/cart?username=<%=username%>"><img align="middle" name="img_cart" src="<%=basePath%>/images/cart.gif"/></a>
             <img align="middle" src="<%=basePath%>/images/separator.gif"/>
 
             <a href="<%=basePath%>/web/mainpage?username=<%=username%>">Sign Out</a>
@@ -76,97 +76,85 @@
     </div>
 
 </div>
-
 <div id="Content">
-
-
-
-    <!-- Support for non-traditional but simple message -->
-
-
-    <!-- Support for non-traditional but simpler use of errors... -->
-
-
-
-
     <div id="BackLink">
         <a href="<%=basePath%>/web/loginmainpage?username=<%=username%>">Return to Main Menu</a>
     </div>
-
     <div id="Catalog">
 
-        <div id="Cart">
-
-            <h2>Shopping Cart</h2>
-            <form name="cartBean" method="post" action="<%=basePath%>/web/updatecart">
+            <form action="<%=basePath%>/web/confirm" name="orderBean"method="POST">
                 <table>
+                    <tr><th colspan=2>
+                        Payment Details
+                    </th></tr>
                     <tr>
-                        <th><b>Item ID</b></th>  <th><b>Product ID</b></th>  <th><b>Description</b></th> <th><b>In Stock?</b></th>
-                        <th><b>Quantity</b></th>  <th><b>List Price</b></th> <th><b>Total Cost</b></th>  <th>&nbsp;</th>
+                    <td>
+                    Card Type:
+                    </td>
+                    <td>
+                    <select name="CartType">
+                        <option value="Visa">Visa</option>
+                        <option value="MasterCard">MasterCard</option>
+                        <option value="American Express">American Express</option>
+                    </select>
+                </td>
                     </tr>
-                    <c:if test="${sessionScope.cart.number == 0}">
-                        <tr>
-                            <td colspan="8"><b>Your cart is empty.</b></td>
-                        </tr>
-                    </c:if>
+                    <tr><td>
+                        Card Number:</td><td><input type="text" name="CartNumber" value="8888 7777 6666 5555">
+                    </td></tr>
+                    <tr><td>
+                        Expiry Date (MM/YYYY):</td><td><input type="text" name="ExpiryDate" value="12/03">
+                    </td></tr>
+                    <tr><th colspan=2>
+                        Billing Address
+                    </th></tr>
 
-                    <c:forEach var="cartItem" items="${sessionScope.cart.itemList}">
-                        <tr>
-                            <td>
-                            <a href="<%=basePath%>/web/itemdetail?username=<%=username%>&Category=${cartItem.category}&itemid=${cartItem.itemId}">${cartItem.itemId}</a>
-                            </td>
-                            <td>${cartItem.productid}</td>                            <td>${cartItem.itemName}</td>
-                            <td>${cartItem.inStock}</td>
-                            <td>
-                            <input type="text" name="${cartItem.itemId}" value="${cartItem.quantity}"/>
-                            </td>
-                            <td>${cartItem.price}</td>
-                            <td>${cartItem.total}</td>
-                            <td>
-                            <a href="<%=basePath%>/web/remove?itemid=${cartItem.itemId}&username=<%=username%>" class="button">Remove</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                    <tr>
-                        <td colspan="7">Sub Total: $${sessionScope.cart.total}
-                        <input type="submit" value="Update Cart"/>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
+                    <tr><td>
+                        First name:</td><td><input type="text" name="firstname" value="${sessionScope.user.firstname}">
+                    </td></tr>
+                    <tr><td>
+                        Last name:</td><td><input type="text" name="lastname" value="${sessionScope.user.lastname}">
+                    </td></tr>
+                    <tr><td>
+                        Address 1:</td><td><input type="text" name="address1" value="${sessionScope.user.address1}">
+                    </td></tr>
+                    <tr><td>
+                        Address 2:</td><td><input type="text" name="address2" value="${sessionScope.user.address2}">
+                    </td></tr>
+                    <tr><td>
+                        City: </td><td><input type="text" name="city" value="${sessionScope.user.city}">
+                    </td></tr>
+                    <tr><td>
+                        State:</td><td><input type="text" name="state" value="${sessionScope.user.state}">
+                    </td></tr>
+                    <tr><td>
+                        Zip:</td><td><input type="text" name="zipcode" value="${sessionScope.user.zipcode}">
+                    </td></tr>
+                    <tr><td>
+                        Country: </td><td><input type="text" name="country" value="${sessionScope.user.country}">
+                    </td></tr>
+
+                    <tr><td colspan=2>
+                        <input type="checkbox" name="checkship" >Ship to different address...
+                    </td></tr>
+
                 </table>
 
+                <input type="submit" name="submit" value="Continue">
             </form>
-            <span><form action="<%=basePath%>/web/listorder?username=<%=username%>" method="POST">
-                <input type="submit" name="submit" value="List Order"/>
-            </form></span>
-            <c:if test="${sessionScope.cart.number > 0}">
-                <a href="<%=basePath%>/web/checkout">Proceed to Checkout</a>
-            </c:if>
+    </div>
+</div>
+<div id="Footer">
 
-        </div>
-        <div id="MyList">
-            <c:if test=""></c:if>
-        </div>
+    <div id="PoweredBy">
+        <a href="<%=basePath%>/web/mainpage"><img src="<%=basePath%>/images/poweredby.gif"/></a>
+    </div>
 
-
-        <div id="Separator">&nbsp;</div>
+    <div id="Banner">
 
     </div>
 
-    </div>
-
-    <div id="Footer">
-
-        <div id="PoweredBy">
-            <a href="<%=basePath%>/web/mainpage"><img src="<%=basePath%>/images/poweredby.gif"/></a>
-        </div>
-
-        <div id="Banner">
-
-        </div>
-
-    </div>
+</div>
 
 </body>
 </html>
-

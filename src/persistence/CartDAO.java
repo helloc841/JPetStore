@@ -16,4 +16,5 @@ public interface CartDAO {
     public boolean isExistItem(String username , String itemId);
     public void deleteItem(String username , String itemid);
     public void updateItem(String username  , String itemid , int quantity);
+    public void removeAll(String username);
 }

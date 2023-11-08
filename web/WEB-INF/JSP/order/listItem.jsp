@@ -97,76 +97,53 @@
 
         <div id="Cart">
 
-            <h2>Shopping Cart</h2>
-            <form name="cartBean" method="post" action="<%=basePath%>/web/updatecart">
+            <h2>Shopping Order</h2>
                 <table>
                     <tr>
                         <th><b>Item ID</b></th>  <th><b>Product ID</b></th>  <th><b>Description</b></th> <th><b>In Stock?</b></th>
                         <th><b>Quantity</b></th>  <th><b>List Price</b></th> <th><b>Total Cost</b></th>  <th>&nbsp;</th>
                     </tr>
-                    <c:if test="${sessionScope.cart.number == 0}">
-                        <tr>
-                            <td colspan="8"><b>Your cart is empty.</b></td>
-                        </tr>
-                    </c:if>
 
-                    <c:forEach var="cartItem" items="${sessionScope.cart.itemList}">
+                    <c:forEach var="cartItem" items="${sessionScope.order.itemList}">
                         <tr>
                             <td>
-                            <a href="<%=basePath%>/web/itemdetail?username=<%=username%>&Category=${cartItem.category}&itemid=${cartItem.itemId}">${cartItem.itemId}</a>
+                                <a href="<%=basePath%>/web/itemdetail?username=<%=username%>&Category=${cartItem.category}&itemid=${cartItem.itemId}">${cartItem.itemId}</a>
                             </td>
                             <td>${cartItem.productid}</td>                            <td>${cartItem.itemName}</td>
                             <td>${cartItem.inStock}</td>
-                            <td>
-                            <input type="text" name="${cartItem.itemId}" value="${cartItem.quantity}"/>
-                            </td>
+                            <td>${cartItem.quantity}</td>
                             <td>${cartItem.price}</td>
                             <td>${cartItem.total}</td>
-                            <td>
-                            <a href="<%=basePath%>/web/remove?itemid=${cartItem.itemId}&username=<%=username%>" class="button">Remove</a>
-                            </td>
                         </tr>
                     </c:forEach>
                     <tr>
-                        <td colspan="7">Sub Total: $${sessionScope.cart.total}
-                        <input type="submit" value="Update Cart"/>
+                        <td colspan="7">Sub Total: $${sessionScope.order.totalPrice}
                         </td>
                         <td>&nbsp;</td>
                     </tr>
                 </table>
-
-            </form>
-            <span><form action="<%=basePath%>/web/listorder?username=<%=username%>" method="POST">
-                <input type="submit" name="submit" value="List Order"/>
-            </form></span>
-            <c:if test="${sessionScope.cart.number > 0}">
-                <a href="<%=basePath%>/web/checkout">Proceed to Checkout</a>
-            </c:if>
-
-        </div>
-        <div id="MyList">
-            <c:if test=""></c:if>
-        </div>
-
-
+            </div>
+            <div id="MyList">
+            </div>
         <div id="Separator">&nbsp;</div>
 
     </div>
 
+</div>
+
+<div id="Footer">
+
+    <div id="PoweredBy">
+        <a href="<%=basePath%>/web/mainpage"><img src="<%=basePath%>/images/poweredby.gif"/></a>
     </div>
 
-    <div id="Footer">
-
-        <div id="PoweredBy">
-            <a href="<%=basePath%>/web/mainpage"><img src="<%=basePath%>/images/poweredby.gif"/></a>
-        </div>
-
-        <div id="Banner">
-
-        </div>
+    <div id="Banner">
 
     </div>
+
+</div>
 
 </body>
 </html>
+
 

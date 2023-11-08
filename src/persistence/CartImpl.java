@@ -30,6 +30,7 @@ public class CartImpl implements CartDAO{
     private static final String SELECTITEMID = "SELECT * FROM %s WHERE itemid=?";
     private static final String DELETEITEMID = "DELETE FROM %s WHERE itemid=?";
     private static final String UPDATEQUANTITY = "UPDATE %s SET quantity=? WHERE itemid=?";
+    private static final String DELETEALL = "DELETE FROM %s";
     @Override
     public void createCart(String username) {
         Connection connection = null;
@@ -188,6 +189,27 @@ public class CartImpl implements CartDAO{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        finally {
+            DBUtil.closeConnection(connection);
+            DBUtil.closePreparedStatement(preparedStatement);
+        }
+    }
 
+    @Override
+    public void removeAll(String username) {
+        Connection connection = DBUtil.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = String.format(DELETEALL,username);
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        finally {
+            DBUtil.closeConnection(connection);
+            DBUtil.closePreparedStatement(preparedStatement);
+        }
     }
 }

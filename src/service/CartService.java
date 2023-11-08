@@ -16,4 +16,5 @@ public class CartService {
     }
     public void deleteCartItem(String username , String itemid){cartDAO.deleteItem(username,itemid);}
     public void updateCartItem(String username , String itemid , int quantity){cartDAO.updateItem(username, itemid, quantity);}
+    public void deleteAllCarItem(String username){cartDAO.removeAll(username);}
 }

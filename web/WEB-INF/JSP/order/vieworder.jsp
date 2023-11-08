@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 苏建宁
-  Date: 2023/11/5
-  Time: 16:29
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -42,7 +35,7 @@
 
     <div id="Menu">
         <div id="MenuContent">
-            <a href="/jpetstore/shop/viewCart.shtml"><img align="middle" name="img_cart" src="<%=basePath%>/images/cart.gif"/></a>
+            <a href="<%=basePath%>/web/cart?username=<%=username%>"><img align="middle" name="img_cart" src="<%=basePath%>/images/cart.gif"/></a>
             <img align="middle" src="<%=basePath%>/images/separator.gif"/>
 
             <a href="<%=basePath%>/web/mainpage?username=<%=username%>">Sign Out</a>
@@ -76,97 +69,131 @@
     </div>
 
 </div>
-
 <div id="Content">
-
-
-
-    <!-- Support for non-traditional but simple message -->
-
-
-    <!-- Support for non-traditional but simpler use of errors... -->
-
-
-
-
     <div id="BackLink">
         <a href="<%=basePath%>/web/loginmainpage?username=<%=username%>">Return to Main Menu</a>
     </div>
-
     <div id="Catalog">
 
-        <div id="Cart">
-
-            <h2>Shopping Cart</h2>
-            <form name="cartBean" method="post" action="<%=basePath%>/web/updatecart">
+        <table>
+            <tr><th align="center" colspan="2">
+                <font size="4"><b>Order#${sessionScope.order.orderId}</b></font>
+                <br/><font size="3"><b>${sessionScope.order.orderDate}</b></font>
+            </th></tr>
+            <tr><th colspan="2">
+                Payment Details
+            </th></tr>
+            <tr><td>
+                Card Type:</td><td>
+                ${sessionScope.order.cardType}
+            </td></tr>
+            <tr><td>
+                Card Number:</td><td>${sessionScope.order.creditCard}
+            </td></tr>
+            <tr><td>
+                Expiry Date (MM/YYYY):</td><td>${sessionScope.order.expiryDate}
+            </td></tr>
+            <tr><th colspan="2">
+                Billing Address
+            </th></tr>
+            <tr><td>
+                First name:</td><td>${sessionScope.order.billToFirstName}
+            </td></tr>
+            <tr><td>
+                Last name:</td><td>${sessionScope.order.billToLastName}
+            </td></tr>
+            <tr><td>
+                Address 1:</td><td>${sessionScope.order.billAddress1}
+            </td></tr>
+            <tr><td>
+                Address 2:</td><td>${sessionScope.order.billAddress2}
+            </td></tr>
+            <tr><td>
+                City: </td><td>${sessionScope.order.billCity}
+            </td></tr>
+            <tr><td>
+                State:</td><td>${sessionScope.order.billState}
+            </td></tr>
+            <tr><td>
+                Zip:</td><td>${sessionScope.order.billZip}
+            </td></tr>
+            <tr><td>
+                Country: </td><td>${sessionScope.order.billCountry}
+            </td></tr>
+            <tr><th colspan="2">
+                Shipping Address
+            </th></tr><tr><td>
+            <tr><td>
+                First name:</td><td>${sessionScope.order.shipToFirstName}
+            </td></tr>
+            <tr><td>
+                Last name:</td><td>${sessionScope.order.shipToLastName}
+            </td></tr>
+            <tr><td>
+                Address 1:</td><td>${sessionScope.order.shipAddress1}
+            </td></tr>
+            <tr><td>
+                Address 2:</td><td>${sessionScope.order.shipAddress2}
+            </td></tr>
+            <tr><td>
+                City: </td><td>${sessionScope.order.shipCity}
+            </td></tr>
+            <tr><td>
+                State:</td><td>${sessionScope.order.shipState}
+            </td></tr>
+            <tr><td>
+                Zip:</td><td>${sessionScope.order.shipZip}
+            </td></tr>
+            <tr><td>
+                Country: </td><td>${sessionScope.order.shipCountry}
+            </td></tr>
+            <tr><td>
+                Courier: </td><td>${sessionScope.order.courier}
+            </td></tr>
+            <tr><td colspan="2">
+                Status: ${sessionScope.order.status}
+            </td></tr>
+            <tr><td colspan="2">
                 <table>
                     <tr>
-                        <th><b>Item ID</b></th>  <th><b>Product ID</b></th>  <th><b>Description</b></th> <th><b>In Stock?</b></th>
-                        <th><b>Quantity</b></th>  <th><b>List Price</b></th> <th><b>Total Cost</b></th>  <th>&nbsp;</th>
+                        <th>Item ID</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total Cost</th>
                     </tr>
-                    <c:if test="${sessionScope.cart.number == 0}">
-                        <tr>
-                            <td colspan="8"><b>Your cart is empty.</b></td>
-                        </tr>
-                    </c:if>
-
                     <c:forEach var="cartItem" items="${sessionScope.cart.itemList}">
                         <tr>
                             <td>
-                            <a href="<%=basePath%>/web/itemdetail?username=<%=username%>&Category=${cartItem.category}&itemid=${cartItem.itemId}">${cartItem.itemId}</a>
+                                <a href="<%=basePath%>/web/itemdetail?username=<%=username%>&Category=${cartItem.category}&itemid=${cartItem.itemId}">${cartItem.itemId}</a>
                             </td>
-                            <td>${cartItem.productid}</td>                            <td>${cartItem.itemName}</td>
-                            <td>${cartItem.inStock}</td>
-                            <td>
-                            <input type="text" name="${cartItem.itemId}" value="${cartItem.quantity}"/>
-                            </td>
+                            <td>${cartItem.itemName}</td>
+                            <td>${cartItem.quantity}</td>
                             <td>${cartItem.price}</td>
                             <td>${cartItem.total}</td>
-                            <td>
-                            <a href="<%=basePath%>/web/remove?itemid=${cartItem.itemId}&username=<%=username%>" class="button">Remove</a>
-                            </td>
                         </tr>
                     </c:forEach>
                     <tr>
-                        <td colspan="7">Sub Total: $${sessionScope.cart.total}
-                        <input type="submit" value="Update Cart"/>
-                        </td>
-                        <td>&nbsp;</td>
+                        <th colspan="5">Total: ${sessionScope.cart.total}
                     </tr>
                 </table>
+            </td></tr>
 
-            </form>
-            <span><form action="<%=basePath%>/web/listorder?username=<%=username%>" method="POST">
-                <input type="submit" name="submit" value="List Order"/>
-            </form></span>
-            <c:if test="${sessionScope.cart.number > 0}">
-                <a href="<%=basePath%>/web/checkout">Proceed to Checkout</a>
-            </c:if>
+        </table>
 
-        </div>
-        <div id="MyList">
-            <c:if test=""></c:if>
-        </div>
+    </div>
+</div>
+<div id="Footer">
 
+    <div id="PoweredBy">
+        <a href="<%=basePath%>/web/mainpage"><img src="<%=basePath%>/images/poweredby.gif"/></a>
+    </div>
 
-        <div id="Separator">&nbsp;</div>
+    <div id="Banner">
 
     </div>
 
-    </div>
-
-    <div id="Footer">
-
-        <div id="PoweredBy">
-            <a href="<%=basePath%>/web/mainpage"><img src="<%=basePath%>/images/poweredby.gif"/></a>
-        </div>
-
-        <div id="Banner">
-
-        </div>
-
-    </div>
+</div>
 
 </body>
 </html>
-

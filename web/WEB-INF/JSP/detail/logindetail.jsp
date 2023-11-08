@@ -52,7 +52,7 @@
             <a href="<%=basePath%>/web/cart?username=<%=username%>"><img align="middle" name="img_cart" src="<%=basePath%>/images/cart.gif"/></a>
             <img align="middle" src="<%=basePath%>/images/separator.gif"/>
 
-            <a href="<%=basePath%>/web/mainpage">Sign Out</a>
+            <a href="<%=basePath%>/web/mainpage?username=<%=username%>">Sign Out</a>
             <img align="middle" src="<%=basePath%>/images/separator.gif"/>
             <a href="<%=basePath%>/web/myaccount?username=<%=username%>">My Account</a>
 

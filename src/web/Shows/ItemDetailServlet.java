@@ -2,6 +2,7 @@ package web.Shows;
 
 import pojo.Item;
 import service.CategoryService;
+import web.Filter.BrowseItemFilter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +45,10 @@ public class ItemDetailServlet extends HttpServlet {
         req.setAttribute("productid",productid);
         if (username == null)
         req.getRequestDispatcher(URL_ITEMDETAIL).forward(req,resp);
-        else
+        else{
+            BrowseItemFilter browseItemFilter = new BrowseItemFilter();
+            browseItemFilter.doFilter(req,resp,null);
             req.getRequestDispatcher(URL_LOGINDDETAIL).forward(req,resp);
+        }
     }
 }

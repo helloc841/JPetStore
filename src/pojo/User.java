@@ -1,6 +1,8 @@
 package pojo;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     //用户基本信息
     String username;
     String password;
