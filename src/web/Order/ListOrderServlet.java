@@ -15,11 +15,12 @@ public class ListOrderServlet extends HttpServlet {
     private OrderService orderService = new OrderService();
     private static final String URL_LISTORDER = "/WEB-INF/JSP/order/listorders.jsp";
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         List<Order> orders = orderService.getOrders(username);
         HttpSession session = req.getSession();
         session.setAttribute("orders",orders);
+        session.setAttribute("username",username);
         req.getRequestDispatcher(URL_LISTORDER).forward(req,resp);
     }
 }

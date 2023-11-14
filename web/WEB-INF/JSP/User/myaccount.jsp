@@ -166,7 +166,7 @@
 
         </form>
 
-        <a href="/jpetstore/shop/listOrders.shtml">My Orders</a>
+        <a href="<%=basePath%>/web/listorder?username=<%=username%>">My Orders</a>
 
     </div>
 

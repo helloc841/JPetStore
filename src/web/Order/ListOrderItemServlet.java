@@ -16,7 +16,7 @@ public class ListOrderItemServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         List<Order> orders = (List<Order>) session.getAttribute("orders");
-        String  orderIdStr = (String) req.getParameter("orderId");
+        String  orderIdStr = req.getParameter("orderId");
         int orderId = Integer.parseInt(orderIdStr);
         Order order = null;
         for (Order order1 : orders){

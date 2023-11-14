@@ -98,7 +98,6 @@
 
 
     <div id="BackLink">
-
         <a href="<%=basePath%>/web/category?Category=<%=Category%>&username=<%=username%>">Return to <%=Category%></a>
 
     </div>

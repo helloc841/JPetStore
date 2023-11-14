@@ -90,7 +90,7 @@
 
 
     <div id="BackLink">
-        <a href="<%=basePath%>/web/loginmainpage?username=<%=username%>">Return to Main Menu</a>
+        <a href="<%=basePath%>/web/listorder?username=<%=username%>">Return to Order</a>
     </div>
 
     <div id="Catalog">
@@ -107,7 +107,7 @@
                     <c:forEach var="cartItem" items="${sessionScope.order.itemList}">
                         <tr>
                             <td>
-                                <a href="<%=basePath%>/web/itemdetail?username=<%=username%>&Category=${cartItem.category}&itemid=${cartItem.itemId}">${cartItem.itemId}</a>
+                                <a href="<%=basePath%>/web/itemdetail?username=<%=username%>&Category=${cartItem.category}&itemid=${cartItem.itemId}&type=order">${cartItem.itemId}</a>
                             </td>
                             <td>${cartItem.productid}</td>                            <td>${cartItem.itemName}</td>
                             <td>${cartItem.inStock}</td>
