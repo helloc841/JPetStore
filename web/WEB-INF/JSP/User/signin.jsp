@@ -25,80 +25,7 @@
     <meta http-equiv="expires" content="0"/>
     <meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
     <meta http-equiv="Pragma" content="no-cache"/>
-    <script>
-        var show_num = [];
-        draw(show_num);
-        function dj(){
-            draw(show_num);
-        }
-        function sublim(){
-            var val=document.getElementById("text").value;
-            var num = show_num.join("");
-            if(val==''){
-                alert('The verification code is empty');
-                return false;
-            }else if(val == num){
-                return true;
-
-            }else{
-                alert('The verification code is incorrect, please note that the verification code is case-sensitive');
-                document.getElementById("text").value='';
-                return false;
-            }
-        }
-        function draw(show_num) {
-            var canvas_width=document.getElementById('canvas').clientWidth;
-            var canvas_height=document.getElementById('canvas').clientHeight;
-            var canvas = document.getElementById("canvas");//获取到canvas的对象，演员
-            var context = canvas.getContext("2d");//获取到canvas画图的环境，演员表演的舞台
-            canvas.width = canvas_width;
-            canvas.height = canvas_height;
-            var sCode = "A,B,C,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,W,X,Y,Z,1,2,3,4,5,6,7,8,9,0,q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m";
-            var aCode = sCode.split(",");
-            var aLength = aCode.length;//获取到数组的长度
-
-            for (var i = 0; i <= 3; i++) {
-                var j = Math.floor(Math.random() * aLength);//获取到随机的索引值
-                var deg = Math.random() * 30 * Math.PI / 180;//产生0~30之间的随机弧度
-                var txt = aCode[j];//得到随机的一个内容
-                show_num[i] = txt;
-                var x = 10 + i * 20;//文字在canvas上的x坐标
-                var y = 20 + Math.random() * 8;//文字在canvas上的y坐标
-                context.font = "bold 23px 微软雅黑";
-
-                context.translate(x, y);
-                context.rotate(deg);
-
-                context.fillStyle = randomColor();
-                context.fillText(txt, 0, 0);
-
-                context.rotate(-deg);
-                context.translate(-x, -y);
-            }
-            for (var i = 0; i <= 5; i++) { //验证码上显示线条
-                context.strokeStyle = randomColor();
-                context.beginPath();
-                context.moveTo(Math.random() * canvas_width, Math.random() * canvas_height);
-                context.lineTo(Math.random() * canvas_width, Math.random() * canvas_height);
-                context.stroke();
-            }
-            for (var i = 0; i <= 30; i++) { //验证码上显示小点
-                context.strokeStyle = randomColor();
-                context.beginPath();
-                var x = Math.random() * canvas_width;
-                var y = Math.random() * canvas_height;
-                context.moveTo(x, y);
-                context.lineTo(x + 1, y + 1);
-                context.stroke();
-            }
-        }
-        function randomColor() {//得到随机的颜色值
-            var r = Math.floor(Math.random() * 256);
-            var g = Math.floor(Math.random() * 256);
-            var b = Math.floor(Math.random() * 256);
-            return "rgb(" + r + "," + g + "," + b + ")";
-        }
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body onload="dj()">
@@ -155,21 +82,23 @@
     <div id="Catalog">
         <form name="accountBean" id="accountBean" method="POST" action="success" onsubmit="return sublim()">
 
-            <p>Please enter your username and password.</p>
+            <p><label>Please enter your username and password.</label></p>
             <p>
-                Username:<input type="text" name="username" value="j2ee"/>
+                <label for="username">Username:&nbsp</label><input class="sp" type="text" name="username" id="username" value="j2ee"/>
                 <br/>
-                Password:<input type="password" name="password" value="j2ee"/>
+                <label id="label1"></label>
                 <br/>
-                <input type="text" value="" id ="text">
+                <label>Password:&nbsp</label><input class="sp" type="password" name="password" value="j2ee"/>
+                <br/>
+                <input class="sp" type="text" value="" id ="text">
                 <canvas id="canvas" width="100" height="43" onclick="dj()"
                         style="border: 1px solid #ccc;
-                    border-radius: 5px;"></canvas>
+                    border-radius: 5px;position: relative;top:15px;left:10px;"></canvas>
             </p>
             <input type="submit" value="Login"/>
 
         </form>
-        Need a username and password?
+        <label>Need a username and password?</label>
         <a href="register">Register Now!</a>
 
     </div>
@@ -185,6 +114,6 @@
     </div>
 
 </div>
-
+<script type="text/javascript" src="<%=basePath%>/js/signin.js"></script>
 </body>
 </html>

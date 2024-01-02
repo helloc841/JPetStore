@@ -28,6 +28,7 @@
     <meta http-equiv="expires" content="0"/>
     <meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
     <meta http-equiv="Pragma" content="no-cache"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -110,7 +111,7 @@
                         </tr>
                     </c:if>
 
-                    <c:forEach var="cartItem" items="${sessionScope.cart.itemList}">
+                    <c:forEach var="cartItem" items="${sessionScope.cart.itemList}" varStatus="loopStatus">
                         <tr>
                             <td>
                             <a href="<%=basePath%>/web/itemdetail?username=<%=username%>&Category=${cartItem.category}&itemid=${cartItem.itemId}">${cartItem.itemId}</a>
@@ -118,10 +119,10 @@
                             <td>${cartItem.productid}</td>                            <td>${cartItem.itemName}</td>
                             <td>${cartItem.inStock}</td>
                             <td>
-                            <input type="text" name="${cartItem.itemId}" value="${cartItem.quantity}"/>
+                            <input type="text" name="${cartItem.itemId}" value="${cartItem.quantity}" class="Quantity" data-username="<%=username%>" data-price="${cartItem.price}"  data-itemid="${cartItem.itemId}" id="quantity_${loopStatus.index}"/>
                             </td>
                             <td>${cartItem.price}</td>
-                            <td>${cartItem.total}</td>
+                            <td id="total_${loopStatus.index}">${cartItem.total}</td>
                             <td>
                             <a href="<%=basePath%>/web/remove?itemid=${cartItem.itemId}&username=<%=username%>" class="button">Remove</a>
                             </td>
@@ -163,7 +164,7 @@
         </div>
 
     </div>
-
+<script type="text/javascript" src="<%=basePath%>/js/cart.js"></script>
 </body>
 </html>
 

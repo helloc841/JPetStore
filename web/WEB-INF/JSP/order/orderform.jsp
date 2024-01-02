@@ -28,6 +28,7 @@
     <meta http-equiv="expires" content="0"/>
     <meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
     <meta http-equiv="Pragma" content="no-cache"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -135,9 +136,37 @@
                     </td></tr>
 
                     <tr><td colspan=2>
-                        <input type="checkbox" name="checkship" >Ship to different address...
+                        <input type="checkbox" name="checkship" id="isship" checked="checked">Ship to different address...
                     </td></tr>
 
+                    <tr class="ship"><th colspan=2>
+                        Shipping Address
+                    </th></tr>
+
+                    <tr class="ship"><td>
+                        First name:</td><td><input type="text" name="firstname1" value="${sessionScope.user.firstname}">
+                    </td></tr>
+                    <tr class="ship"><td>
+                        Last name:</td><td><input type="text" name="lastname1" value="${sessionScope.user.lastname}">
+                    </td></tr>
+                    <tr class="ship"><td>
+                        Address 1:</td><td><input type="text" name="address11" value="${sessionScope.user.address1}">
+                    </td></tr>
+                    <tr class="ship"><td>
+                        Address 2:</td><td><input type="text" name="address21" value="${sessionScope.user.address2}">
+                    </td></tr>
+                    <tr class="ship"><td>
+                        City: </td><td><input type="text" name="city1" value="${sessionScope.user.city}">
+                    </td></tr>
+                    <tr class="ship"><td>
+                        State:</td><td><input type="text" name="state1" value="${sessionScope.user.state}">
+                    </td></tr>
+                    <tr class="ship"><td>
+                        Zip:</td><td><input type="text" name="zipcode1" value="${sessionScope.user.zipcode}">
+                    </td></tr>
+                    <tr class="ship"><td>
+                        Country: </td><td><input type="text" name="country1" value="${sessionScope.user.country}">
+                    </td></tr>
                 </table>
 
                 <input type="submit" name="submit" value="Continue">
@@ -155,6 +184,6 @@
     </div>
 
 </div>
-
+    <script type="text/javascript" src="<%=basePath%>/js/orderform.js"></script>
 </body>
 </html>

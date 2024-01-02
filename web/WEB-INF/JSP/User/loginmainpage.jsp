@@ -93,7 +93,7 @@
     <div id="Welcome">
         <div id="WelcomeContent">
             <%
-                out.println("<p>Welcome " + username + " !</p>");
+                out.println("<p><label>Welcome " + username + " !</label></p>");
             %>
         </div>
     </div>
@@ -101,24 +101,25 @@
     <div id="Main">
         <div id="Sidebar">
             <div id="SidebarContent">
-                <a href="<%=basePath%>/web/category?username=<%=username%>&Category=FISH"><img src="<%=basePath%>/images/fish_icon.gif"/></a>
+                <a href="<%=basePath%>/web/category?Category=FISH"><img src="<%=basePath%>/images/fish_icon.gif"/></a>
                 <br/>
-                Saltwater, Freshwater
+                <label>Saltwater, Freshwater</label>
                 <br/>
-                <a href="<%=basePath%>/web/category?username=<%=username%>&Category=DOGS"><img src="<%=basePath%>/images/dogs_icon.gif"/></a>
+                <a href="<%=basePath%>/web/category?Category=DOGS"><img src="<%=basePath%>/images/dogs_icon.gif"/></a>
                 <br/>
-                Various Breeds
+                <label>Various Breeds</label>
                 <br/>
-                <a href="<%=basePath%>/web/category?username=<%=username%>&Category=CATS"><img src="<%=basePath%>/images/cats_icon.gif"/></a>
+                <a href="<%=basePath%>/web/category?Category=REPTILES"><img src="<%=basePath%>/images/cats_icon.gif"/></a>
                 <br/>
-                Various Breeds, Exotic Varieties
+                <label>Various Breeds, Exotic Varieties</label>
                 <br/>
-                <a href="<%=basePath%>/web/category?username=<%=username%>&Category=REPTILES"><img src="<%=basePath%>/images/reptiles_icon.gif"/></a>
+                <a href="<%=basePath%>/web/category?Category=CATS"><img src="<%=basePath%>/images/reptiles_icon.gif"/></a>
                 <br/>
-                Lizards, Turtles, Snakes
+                <label>Lizards, Turtles, Snakes</label>
                 <br/>
-                <a href="<%=basePath%>/web/category?username=<%=username%>&Category=BIRDS"><img src="<%=basePath%>/images/birds_icon.gif"/></a>
-                <br/>Exotic Varieties
+                <a href="<%=basePath%>/web/category?Category=BIRDS"><img src="<%=basePath%>/images/birds_icon.gif"/></a>
+                <br/>
+                <label>Exotic Varieties</label>
             </div>
         </div>
         <div id="MainImage">

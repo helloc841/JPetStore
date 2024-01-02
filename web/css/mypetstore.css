@@ -282,18 +282,36 @@ body>#Banner {
 }
 
 #Catalog input[type="submit"]{
-    padding: .3ex;
-    color: #fff;
-    background-color: #005e21;
+    /*padding: .3ex;*/
+    /*color: #fff;*/
+    /*background-color: #005e21;*/
+    /*text-decoration: none;*/
+    /*font-family: helvetica, tahoma, arial, verdana, sans-serif;*/
+    /*font-size: 1.5ex;*/
+    /*border-width:0;*/
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
     text-decoration: none;
-    font-family: helvetica, tahoma, arial, verdana, sans-serif;
-    font-size: 1.5ex;
-    border-width:0;
+    outline: none;
+    color:#fff;
+    background-color: rgb(16, 185, 214);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }
 #Catalog input[type="submit"]:hover {
-    color: #000;
-    background-color: #54c07a;
-    cursor:pointer;
+    /*color: #000;*/
+    /*background-color: #54c07a;*/
+    /*cursor:pointer;*/
+    background-color: #1795bb;
+}
+#Catalog input[type="submit"]:active{
+    background-color: #1795bb;
+    box-shadow: 0 5px #666;
+    transform:translateY(4px);
 }
 
 #Catalog table{

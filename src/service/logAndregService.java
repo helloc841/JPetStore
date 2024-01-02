@@ -23,6 +23,7 @@ public class logAndregService {
         else
             return msg;
     }
+    public boolean isAccountExist(String username){ return userDAO.isAccountExist(username);}
     private String getTip(User user){
         String msg ="";
         if (userDAO.isUsernameRepeat(user.getUsername())){

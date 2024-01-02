@@ -23,5 +23,6 @@
     <orderEntry type="library" exported="" name="mysql-connector-j-8.1.0" level="project" />
     <orderEntry type="library" name="jstl" level="project" />
     <orderEntry type="library" name="standard" level="project" />
+    <orderEntry type="library" name="fastjson-1.2.83" level="project" />
   </component>
 </module>

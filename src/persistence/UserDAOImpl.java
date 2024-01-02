@@ -16,6 +16,7 @@ public class UserDAOImpl implements UserDAO{
                                         "zipcode,country,language,lovecategory) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String DELETE_USER = "DELETE FROM usermessage WHERE username=?";
     private static final String GET_USER_ACCOUNT = "SELECT * FROM usermessage WHERE username=?";
+    private static final String IS_ACCOUNT_EXIST = "SELECT COUNT(*) FROM usermessage WHERE username=?";
     private static final String UPDATE_USER = "UPDATE usermessage SET firstname=?,lastname=?," +
                                         "email=?,phone=?,address1=?,address2=?,city=?,state=?," +
                                         "zipcode=?,country=?,language=?,lovecategory=? WHERE username=?";
@@ -202,4 +203,31 @@ public class UserDAOImpl implements UserDAO{
         }
     }
 
+    @Override
+    public boolean isAccountExist(String username) {
+        Connection connection = DBUtil.getConnection();
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        try {
+            preparedStatement = connection.prepareStatement(IS_ACCOUNT_EXIST);
+            preparedStatement.setString(1,username);
+            resultSet = preparedStatement.executeQuery();
+
+// 处理结果集
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);  // 获取查询结果中的计数值
+                if (count > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            DBUtil.closeConnection(connection);
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeResultSet(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
 }

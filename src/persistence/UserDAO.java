@@ -17,4 +17,5 @@ public interface UserDAO {
     public boolean setUserAccount(User user);
     //修改用户密码
     public boolean setUserPassword(String username , String password);
+    public boolean isAccountExist(String username);
 }

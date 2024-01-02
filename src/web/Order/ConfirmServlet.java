@@ -13,7 +13,6 @@ import java.time.format.DateTimeFormatter;
 
 public class ConfirmServlet extends HttpServlet {
     private static final String URL_CONFIRM = "/WEB-INF/JSP/order/confirmorder.jsp";
-    private static final String URL_SHIP = "/WEB-INF/JSP/order/shipping.jsp";
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocalDateTime now = LocalDateTime.now();
@@ -35,18 +34,16 @@ public class ConfirmServlet extends HttpServlet {
         order.setBillState(req.getParameter("state"));
         order.setBillZip(req.getParameter("zipcode"));
         order.setBillCountry(req.getParameter("country"));
-        order.setShipToFirstName(req.getParameter("firstname"));
-        order.setShipToLastName(req.getParameter("lastname"));
-        order.setShipAddress1(req.getParameter("address1"));
-        order.setShipAddress2(req.getParameter("address2"));
-        order.setShipCity(req.getParameter("city"));
-        order.setShipState(req.getParameter("state"));
-        order.setShipZip(req.getParameter("zipcode"));
-        order.setShipCountry(req.getParameter("country"));
+
+        order.setShipToFirstName(req.getParameter("firstname1"));
+        order.setShipToLastName(req.getParameter("lastname1"));
+        order.setShipAddress1(req.getParameter("address11"));
+        order.setShipAddress2(req.getParameter("address21"));
+        order.setShipCity(req.getParameter("city1"));
+        order.setShipState(req.getParameter("state1"));
+        order.setShipZip(req.getParameter("zipcode1"));
+        order.setShipCountry(req.getParameter("country1"));
         session.setAttribute("order",order);
-        if (checkbox == null)
         req.getRequestDispatcher(URL_CONFIRM).forward(req,resp);
-        else
-            req.getRequestDispatcher(URL_SHIP).forward(req,resp);
     }
 }

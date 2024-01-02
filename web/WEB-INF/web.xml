@@ -203,4 +203,36 @@
         <servlet-name>ListOrderItemServlet</servlet-name>
         <url-pattern>/web/listorderitem</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AjaxSearchServlet</servlet-name>
+        <servlet-class>web.AjaxServlet.AjaxSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxSearchServlet</servlet-name>
+        <url-pattern>/web/ajaxsearch</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AjaxCheckUserNameServlet</servlet-name>
+        <servlet-class>web.AjaxServlet.AjaxCheckUserNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxCheckUserNameServlet</servlet-name>
+        <url-pattern>/web/checkusername</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AjaxCartServlet</servlet-name>
+        <servlet-class>web.AjaxServlet.AjaxCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxCartServlet</servlet-name>
+        <url-pattern>/web/ajaxcart</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AjaxToolTipServlet</servlet-name>
+        <servlet-class>web.AjaxServlet.AjaxToolTipServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxToolTipServlet</servlet-name>
+        <url-pattern>/web/tooltip</url-pattern>
+    </servlet-mapping>
 </web-app>

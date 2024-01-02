@@ -282,23 +282,61 @@ body>#Banner {
 }
 
 #Catalog input[type="submit"]{
-  padding: .3ex;
-  color: #fff;
-  background-color: #005e21;
+  /*padding: .3ex;*/
+  /*text-decoration: none;*/
+  /*font-family: helvetica, tahoma, arial, verdana, sans-serif;*/
+  /*font-size: 1.5ex;*/
+  /*border-width:0;*/
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
   text-decoration: none;
-  font-family: helvetica, tahoma, arial, verdana, sans-serif;
-  font-size: 1.5ex;
-  border-width:0;
+  outline: none;
+  color:#fff;
+  background-color: rgb(16, 185, 214);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
 }
 #Catalog input[type="submit"]:hover {
-  color: #000;
-  background-color: #54c07a;
-  cursor:pointer;
+  /*color: #000;*/
+  /*background-color: #54c07a;*/
+  /*cursor:pointer;*/
+  background-color: #1795bb;
+}
+#Catalog input[type="submit"]:active{
+  background-color: #1795bb;
+  box-shadow: 0 5px #666;
+  transform:translateY(4px);
 }
 
 #Catalog table{
   margin-left:auto;
   margin-right:auto;
+}
+
+.sp{
+  width: 6.5em;
+  color: white;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: hsl(236, 32%, 26%);
+  padding: 0.35em 0.45em;
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 15px;
+}
+
+label{
+  font-weight: bold;
+  font-family: cursive;
+}
+
+a{
+  font-weight: bold;
+  font-family: cursive;
 }
 
 #BackLink{
@@ -321,3 +359,48 @@ body>#Banner {
   background-color:#ccc;
   text-align:left;
 }
+#productAutoComplete{
+  background:#ccc;
+  position: relative;
+  top: -28px;
+  left: 120px;
+  width: 194px;
+  display: none;
+}
+#productAutoList{
+  margin: 0;
+  padding: 0;
+  border: 1px solid #aaa;
+}
+.productAutoItem{
+  list-style: none;
+  height: 27px;
+  line-height: 27px;
+  font-size: 12px;
+  text-align: left;
+  padding-left: 8px;
+  margin-top: 3px;
+  border-bottom: 1px solid #666;
+  color: black;
+  cursor: pointer;
+}
+.tooltip-text {
+  display: none;
+  position: absolute;
+  text-align: left;
+  background-color: #007bff; /* 修改为蓝色背景 */
+  color: #fff;
+  padding: 8px; /* 增加内边距 */
+  border-radius: 8px; /* 增加圆角 */
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+}
+
+.tooltip-text.show {
+  display: block;
+  opacity: 1; /* 显示提示框时的透明度 */
+}
+.ship{
+  display: none;
+}
+

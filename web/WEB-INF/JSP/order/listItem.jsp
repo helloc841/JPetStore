@@ -42,7 +42,7 @@
 
     <div id="Menu">
         <div id="MenuContent">
-            <a href="/jpetstore/shop/viewCart.shtml"><img align="middle" name="img_cart" src="<%=basePath%>/images/cart.gif"/></a>
+            <a href="<%=basePath%>/web/cart?username=<%=username%>"><img align="middle" name="img_cart" src="<%=basePath%>/images/cart.gif"/></a>
             <img align="middle" src="<%=basePath%>/images/separator.gif"/>
 
             <a href="<%=basePath%>/web/mainpage?username=<%=username%>">Sign Out</a>
