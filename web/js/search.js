@@ -34,9 +34,13 @@ $(function (){
        var image = $(this).data('image');
        var Category = getCategory(image);
        var itemid = $(this).data('itemid');
+       var username = $('#keyword').data('username');
        $('#productAutoComplete').hide();
        $('keyword').val('');
-       window.location.href = 'http://localhost:8080/JPetStore/web/itemdetail?itemid='+itemid+'&Category='+Category;
+       if (username != undefined)
+       window.location.href = 'http://localhost:8080/JPetStore/web/itemdetail?itemid='+itemid+'&Category='+Category+"&username="+username;
+       else
+           window.location.href ='http://localhost:8080/JPetStore/web/itemdetail?itemid='+itemid+'&Category='+Category;
    })
     function getCategory (image){
         var substr_3 =  image.slice(0,3);

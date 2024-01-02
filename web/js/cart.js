@@ -7,9 +7,9 @@ $(function (){
         var Quantity = $(this).val();
         console.log(isNaN(Quantity));
         if (isNaN(Quantity))
-            console.log('not number');
+            alert('Please input the right number!')
         else if (Quantity.indexOf('.') != -1)
-            console.log('not .');
+            alert('Please input the right number!')
         else if (Quantity != ''){
             $.ajax({
                 type    : 'GET',

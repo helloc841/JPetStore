@@ -58,9 +58,13 @@
     <div id="Search">
         <div id="SearchContent">
             <form name="catalogBean" method="post" action="<%=basePath%>/web/search?username=<%=username%>">
-                <input name="keyword" size="14"/>&nbsp;<input type="submit" name="SearchButton"
-                                                              value="Search"/>
+                <input name="keyword" id='keyword' size="14" data-username="<%=username%>"/>&nbsp;
+                <input type="submit" name="SearchButton" value="Search"/>
             </form>
+            <div id="productAutoComplete">
+                <ul id="productAutoList">
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -165,6 +169,7 @@
 
     </div>
 <script type="text/javascript" src="<%=basePath%>/js/cart.js"></script>
+<script type="text/javascript" src="<%=basePath%>/js/search.js"></script>
 </body>
 </html>
 

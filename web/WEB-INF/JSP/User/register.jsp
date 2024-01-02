@@ -31,6 +31,7 @@
     <meta http-equiv="expires" content="0"/>
     <meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
     <meta http-equiv="Pragma" content="no-cache"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         var show_num = [];
         draw(show_num);
@@ -130,9 +131,13 @@
     <div id="Search">
         <div id="SearchContent">
             <form name="catalogBean" method="post" action="<%=basePath%>/web/search">
-                <input name="keyword" size="14"/>&nbsp;<input type="submit" name="SearchButton"
-                                                              value="Search"/>
+                <input  type="text" name="keyword" id="keyword" size="14"/>&nbsp;
+                <input type="submit" name="SearchButton" value="Search"/>
             </form>
+            <div id="productAutoComplete">
+                <ul id="productAutoList">
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -264,6 +269,6 @@
     </div>
 
 </div>
-
+<script type="text/javascript" src="<%=basePath%>/js/search.js"></script>
 </body>
 </html>
