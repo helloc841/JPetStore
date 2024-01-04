@@ -186,7 +186,8 @@
 
             <table>
                 <tr>
-                    <td>User ID:</td><td><input type="text" name="username" value=""></td>
+                    <td>User ID:</td><td><input type="text" name="username" value="" id="username"></td>
+                    <td><label id="label1"></label></td>
                 </tr><tr>
                 <td>New password:</td><td><input type="password" name="password" value=""></td>
             </tr><tr>
@@ -270,5 +271,6 @@
 
 </div>
 <script type="text/javascript" src="<%=basePath%>/js/search.js"></script>
+<script type="text/javascript" src="<%=basePath%>/js/register.js"></script>
 </body>
 </html>
