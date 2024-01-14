@@ -18,7 +18,7 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String keyword = req.getParameter("keyword");
-        List<Item> items = searchService.getItemByItemName(keyword);
+        List<Item> items = searchService.getItemLikeItemName(keyword);
         HttpSession session = req.getSession();
         String username = req.getParameter("username");
         System.out.println("items.length"+items.size());
