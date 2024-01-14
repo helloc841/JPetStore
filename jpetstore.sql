@@ -11,7 +11,7 @@
  Target Server Version : 80017
  File Encoding         : 65001
 
- Date: 08/11/2023 23:55:14
+ Date: 14/01/2024 14:52:52
 */
 
 SET NAMES utf8mb4;
@@ -80,12 +80,13 @@ CREATE TABLE `j2ee`  (
   `total` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `Category` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of j2ee
 -- ----------------------------
-INSERT INTO `j2ee` VALUES (21, 'EST-5', 'FI-FW-01', 'Spotted Koi', 1, 'true', '$18.50', '$18.5', 'FISH');
+INSERT INTO `j2ee` VALUES (34, 'EST-5', 'FI-FW-01', 'Spotted Koi', 4, 'true', '$18.50', '$18.5', 'FISH');
+INSERT INTO `j2ee` VALUES (35, 'EST-21', 'FI-FW-02', 'Adult Female Goldfish', 1, 'true', '$5.29', '$5.29', 'FISH');
 
 -- ----------------------------
 -- Table structure for logrecord
@@ -98,7 +99,94 @@ CREATE TABLE `logrecord`  (
   `browsenumber` int(11) NULL DEFAULT NULL,
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 91 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of logrecord
+-- ----------------------------
+INSERT INTO `logrecord` VALUES (12, 'j2ee', 'noitem', 59, 'j2ee log in');
+INSERT INTO `logrecord` VALUES (13, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (14, 'j2ee', 'EST-5', 3, 'j2ee browse EST-5');
+INSERT INTO `logrecord` VALUES (15, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (16, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (17, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (18, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (19, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (20, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (21, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (22, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (23, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (24, 'j2ee', 'EST-6', 1, 'j2ee browse EST-6');
+INSERT INTO `logrecord` VALUES (25, 'j2ee', 'EST-6', 2, 'j2ee add EST-6into j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (26, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (27, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (28, 'j2ee', 'EST-5', 9, 'add EST-5 into j2ee\'s order');
+INSERT INTO `logrecord` VALUES (29, 'j2ee', 'EST-6', 2, 'add EST-6 into j2ee\'s order');
+INSERT INTO `logrecord` VALUES (30, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (31, 'j2ee', 'EST-5', 9, 'j2ee add EST-5into j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (32, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (33, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (34, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (35, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (36, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (37, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (38, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (39, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (40, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (41, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (42, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (43, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (44, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (45, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (46, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (47, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (48, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (49, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (50, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (51, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (52, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (53, 'j2ee', 'noitem', 8, 'j2ee sign out');
+INSERT INTO `logrecord` VALUES (54, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (55, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (56, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (57, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (58, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (59, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (60, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (61, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (62, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (63, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (64, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (65, 'undefined', 'EST-20', 2, 'undefined browse EST-20');
+INSERT INTO `logrecord` VALUES (66, 'j2ee', 'EST-20', 3, 'j2ee browse EST-20');
+INSERT INTO `logrecord` VALUES (67, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (68, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (69, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (70, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (71, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (72, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (73, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (74, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (75, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (76, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (77, 'j2ee', 'EST-4', 1, 'j2ee add EST-4into j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (78, 'j2ee', 'EST-4', 1, 'add EST-4 into j2ee\'s order');
+INSERT INTO `logrecord` VALUES (79, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (80, '1231', 'noitem', 1, '1231 log in');
+INSERT INTO `logrecord` VALUES (81, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (82, 'j2ee', 'EST-26', 1, 'j2ee add EST-26into j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (83, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (84, 'j2ee', 'EST-15', 1, 'j2ee browse EST-15');
+INSERT INTO `logrecord` VALUES (85, 'j2ee', 'EST-15', 1, 'j2ee add EST-15into j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (86, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (87, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (88, 'j2ee', 'EST-26', 1, 'add EST-26 into j2ee\'s order');
+INSERT INTO `logrecord` VALUES (89, 'j2ee', 'EST-15', 1, 'add EST-15 into j2ee\'s order');
+INSERT INTO `logrecord` VALUES (90, NULL, 'noitem', 1, 'null log in');
+INSERT INTO `logrecord` VALUES (91, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (92, 'j2ee', 'EST-21', 1, 'j2ee add EST-21into j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (93, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
+INSERT INTO `logrecord` VALUES (94, 'j2ee', NULL, 1, 'j2ee add nullinto j2ee\'s cart');
 
 -- ----------------------------
 -- Table structure for ordercartitem
@@ -116,7 +204,7 @@ CREATE TABLE `ordercartitem`  (
   `total` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `Category` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ordercartitem
@@ -124,6 +212,20 @@ CREATE TABLE `ordercartitem`  (
 INSERT INTO `ordercartitem` VALUES (22, 1000, 'EST-5', 'FI-FW-01', 'Spotted Koi', 1, 'true', '$18.50', '$18.5', 'FISH');
 INSERT INTO `ordercartitem` VALUES (23, 1001, 'EST-5', 'FI-FW-01', 'Spotted Koi', 2, 'true', '$18.50', '$18.5', 'FISH');
 INSERT INTO `ordercartitem` VALUES (24, 1002, 'EST-5', 'FI-FW-01', 'Spotted Koi', 1, 'true', '$18.50', '$18.5', 'FISH');
+INSERT INTO `ordercartitem` VALUES (25, 1003, 'EST-5', 'FI-FW-01', 'Spotted Koi', 1, 'true', '$18.50', '$18.5', 'FISH');
+INSERT INTO `ordercartitem` VALUES (26, 1003, 'EST-6', 'K9-BD-01', 'Male Adult Bulldog', 1, 'true', '$18.50', '$18.5', 'DOGS');
+INSERT INTO `ordercartitem` VALUES (27, 1004, 'EST-5', 'FI-FW-01', 'Spotted Koi', 1, 'true', '$18.50', '$18.5', 'FISH');
+INSERT INTO `ordercartitem` VALUES (28, 1005, 'EST-5', 'FI-FW-01', 'Spotted Koi', 1, 'true', '$18.50', '$18.5', 'FISH');
+INSERT INTO `ordercartitem` VALUES (29, 1006, 'EST-5', 'FI-FW-01', 'Spotted Koi', 3, 'true', '$18.50', '$55.5', 'FISH');
+INSERT INTO `ordercartitem` VALUES (30, 1007, 'EST-5', 'FI-FW-01', 'Spotted Koi', 3, 'true', '$18.50', '$55.5', 'FISH');
+INSERT INTO `ordercartitem` VALUES (31, 1008, 'EST-5', 'FI-FW-01', 'Spotted Koi', 1, 'true', '$18.50', '$18.5', 'FISH');
+INSERT INTO `ordercartitem` VALUES (32, 1009, 'EST-5', 'FI-FW-01', 'Spotted Koi', 4, 'true', '$18.50', '$74.0', 'FISH');
+INSERT INTO `ordercartitem` VALUES (33, 1009, 'EST-6', 'K9-BD-01', 'Male Adult Bulldog', 2, 'true', '$18.50', '$37.0', 'DOGS');
+INSERT INTO `ordercartitem` VALUES (34, 1010, 'EST-5', 'FI-FW-01', 'Spotted Koi', 2, 'true', '$18.50', '$37.0', 'FISH');
+INSERT INTO `ordercartitem` VALUES (35, 1010, 'EST-4', 'FI-FW-01', 'Spottless Koi', 1, 'true', '$18.50', '$18.5', 'FISH');
+INSERT INTO `ordercartitem` VALUES (36, 1011, 'EST-5', 'FI-FW-01', 'Spotted Koi', 1, 'true', '$18.50', '$18.5', 'FISH');
+INSERT INTO `ordercartitem` VALUES (37, 1011, 'EST-26', 'K9-CW-01', 'Adult Male Chihuahua', 1, 'true', '$125.50', '$125.5', 'DOGS');
+INSERT INTO `ordercartitem` VALUES (38, 1011, 'EST-15', 'FL-DSH-01', 'With tail Manx', 1, 'true', '$23.50', '$23.5', 'CATS');
 
 -- ----------------------------
 -- Table structure for product
@@ -178,7 +280,7 @@ CREATE TABLE `usermessage`  (
   `language` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `lovecategory` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of usermessage
@@ -191,6 +293,7 @@ INSERT INTO `usermessage` VALUES (6, '333', '333', 'deng', 'kai', '1234@qq.com',
 INSERT INTO `usermessage` VALUES (7, '333', '333', 'deng', 'kai', '1234@qq.com', '123456789', '1', '1', 'changsha', 'hunan', '234', 'China', 'Chinese', 'fish');
 INSERT INTO `usermessage` VALUES (8, 'j2ee', 'j2ee', 'su', 'jianning', '123456789@qq.com', '18873341569', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'japanese', 'FISH');
 INSERT INTO `usermessage` VALUES (9, '1234', '111', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'english', 'FISH');
+INSERT INTO `usermessage` VALUES (10, '1231', '1231', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', 'english', 'FISH');
 
 -- ----------------------------
 -- Table structure for userorder
@@ -223,7 +326,7 @@ CREATE TABLE `userorder`  (
   `cardType` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   PRIMARY KEY (`orderId`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1012 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of userorder
@@ -231,5 +334,14 @@ CREATE TABLE `userorder`  (
 INSERT INTO `userorder` VALUES (1000, 'j2ee', '2023-11-08 17:36:21', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$18.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
 INSERT INTO `userorder` VALUES (1001, 'j2ee', '2023-11-08 17:37:40', 'csu', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$18.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
 INSERT INTO `userorder` VALUES (1002, 'j2ee', '2023-11-08 23:32:53', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$18.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
+INSERT INTO `userorder` VALUES (1003, 'j2ee', '2023-11-15 11:49:29', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$37.0', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
+INSERT INTO `userorder` VALUES (1004, 'j2ee', '2023-11-15 11:49:55', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$18.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
+INSERT INTO `userorder` VALUES (1005, 'j2ee', '2023-11-15 12:14:00', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$18.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
+INSERT INTO `userorder` VALUES (1006, 'j2ee', '2023-12-31 22:50:46', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$55.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
+INSERT INTO `userorder` VALUES (1007, 'j2ee', '2023-12-31 22:51:55', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$55.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
+INSERT INTO `userorder` VALUES (1008, 'j2ee', '2023-12-31 23:13:49', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$18.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
+INSERT INTO `userorder` VALUES (1009, 'j2ee', '2024-01-02 23:33:22', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$111.0', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
+INSERT INTO `userorder` VALUES (1010, 'j2ee', '2024-01-03 10:23:21', '123', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$55.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
+INSERT INTO `userorder` VALUES (1011, 'j2ee', '2024-01-13 20:49:12', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'CSU', 'central south university', 'Changsha', 'hunan', '95535', 'China', 'UPS', '$167.5', 'su', 'jianning', 'su', 'jianning', '8888 7777 6666 5555', '12/03', 'Visa', 'P');
 
 SET FOREIGN_KEY_CHECKS = 1;
